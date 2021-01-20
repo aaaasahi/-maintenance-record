@@ -3,6 +3,10 @@ class ErrorsController < ApplicationController
     def index
         @errors = Error.all
     end
+
+    def show
+        @error = Error.find(params[:id])
+    end
     
     def new
         @error = Error.new
