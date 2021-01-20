@@ -1,3 +1,10 @@
 <div class="container">
-    <%= @errors.problem %>
+  <% @errors.each do |error| %>
+    <p>
+      <%= error.game %>
+      <%= link_to "編集", edit_error_path(error) %>
+      <%= link_to "削除", error_path(error), method: :delete, data: {confirm: "削除しますか?"}%>
+    </p>
+  <% end %>
+    
 </div>
