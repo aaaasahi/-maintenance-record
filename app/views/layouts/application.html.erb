@@ -11,6 +11,28 @@
   </head>
 
   <body>
+  <nav class="navbar navbar-expand-lg navbar-light bg-primary">
+    <%= link_to "エラーメンテ記録アプリ", root_path, class: "navbar-brand" %>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+  <div class="collapse navbar-collapse" id="navbarText">
+    <ul class="navbar-nav mr-auto">
+      <li class="nav-item">
+        <%= link_to "エラー一覧", root_path, class: "nav-link" %>
+      </li>
+      <li class="nav-item">
+        <%= link_to "エラー登録", new_error_path, class: "nav-link" %>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="#">メンテ一覧</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="#">メンテ登録</a>
+      </li>
+    </ul>
+  </div>
+  </nav>
     <%= yield %>
   </body>
 </html>
