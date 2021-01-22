@@ -1,12 +1,27 @@
 <div class="container">
-  <% @errors.each do |error| %>
-    <p>
-      <%= error.game %>
-      <%= link_to "詳細", error_path(error) %>
-      <%= link_to "編集", edit_error_path(error) %>
-      <%= link_to "削除", error_path(error), method: :delete, data: {confirm: "削除しますか?"}%>
-    </p>
-  <% end %>
-
-    
+  <h1 class="text-center mb-5">エラー一覧</h1>
+  <table class="table table-striped table-bordered">
+    <thead>
+      <tr>
+        <th scope="col">No.</th>
+        <th scope="col">機種</th>
+        <th scope="col">エラー内容</th>
+        <th scope="col"></th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @errors.each.with_index(1) do |error,i| %>
+        <tr>
+          <th scope="row"><%= i %></th>
+          <td><%= error.game %></td>
+          <td><%= error.problem %></td>
+          <td>
+            <%= link_to "詳細", error_path(error) %>
+            <%= link_to "編集", edit_error_path(error) %>
+            <%= link_to "削除", error_path(error), method: :delete, data: {confirm: "削除しますか?"}%>
+          </td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
 </div>
