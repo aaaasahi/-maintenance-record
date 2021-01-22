@@ -15,8 +15,9 @@ class MaintsController < ApplicationController
     def create
         @maint = Maint.new(maint_params)
         if @maint.save
-            redirect_to maints_path
+            redirect_to maints_path,  notice: "登録完了"
         else
+            flash.now[:error] = "登録失敗"
             render :new
         end
     end
@@ -28,8 +29,9 @@ class MaintsController < ApplicationController
     def update
         @maint = Maint.find(params[:id])
         if @maint.update(maint_params)
-            redirect_to maints_path
+            redirect_to maints_path, notice: "編集完了"
         else
+            flash.now[:error] = "編集失敗"
             render :edit
         end
     end
@@ -37,7 +39,7 @@ class MaintsController < ApplicationController
     def destroy
         maint = Maint.find(params[:id])
         maint.destroy!
-        redirect_to maints_path
+        redirect_to maints_path, notice: "削除しました"
     end
 
     private 
