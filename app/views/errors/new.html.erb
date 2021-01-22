@@ -1,4 +1,9 @@
 <div class="container">
+  <ul>
+    <% @error.errors.full_messages.each do |message| %>
+      <li><%= message %></li>
+    <% end %>
+  </ul>
   <%= form_with(model: @error, method: 'post', local: true) do |f| %>
     <div>
       <%= f.label :game, '機種名' %>
