@@ -1,7 +1,9 @@
 <div class="container">
-  <%= @maint.game %>
-  <%= @maint.content %>
-  <%= @maint.name %>
-
-  <%= link_to "一覧ページに戻る", maints_path %>
+<h1 class="text-center mb-5">メンテナンス詳細</h1>
+<ul class="list-group">
+  <li class="list-group-item bg-light">機種：<%= @maint.game %></li>
+  <li class="list-group-item">メンテナンス内容：<%= @maint.content %></li>
+  <li class="list-group-item bg-light">担当者：<%= @maint.name %></li>
+</ul>
+  <%= link_to "メンテナンス一覧ページに戻る", maints_path %>
 </div>

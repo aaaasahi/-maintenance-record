@@ -1,4 +1,5 @@
 <div class="container">
+  <h1 class="text-center mb-5">エラー登録</h1>
   <ul>
     <% @error.errors.full_messages.each do |message| %>
       <li><%= message %></li>
@@ -12,7 +13,7 @@
       <%= f.text_field :game, class: 'text' %>
     </div>
     <div>
-      <%= f.label :problem, '起きたこと' %>
+      <%= f.label :problem, 'エラー内容' %>
     </div>
     <div>
       <%= f.text_area :problem %>

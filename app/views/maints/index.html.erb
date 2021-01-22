@@ -1,12 +1,27 @@
 <div class="container">
-  <% @maints.each do |maint| %>
-    <p>
-      <%= maint.game %>
-      <%= link_to "詳細", maint_path(maint) %>
-      <%= link_to "編集", edit_maint_path(maint) %>
-      <%= link_to "削除", maint_path(maint), method: :delete, data: {confirm: "削除しますか?"}%>
-    </p>
-  <% end %>
-
-    
+  <h1 class="text-center mb-5">メンテナンス一覧</h1>
+  <table class="table table-striped table-bordered">
+    <thead>
+      <tr>
+        <th scope="col">No.</th>
+        <th scope="col">機種</th>
+        <th scope="col">メンテナンス内容</th>
+        <th scope="col"></th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @maints.each.with_index(1) do |maint,i| %>
+        <tr>
+          <th scope="row"><%= i %></th>
+          <td><%= maint.game %></td>
+          <td><%= maint.content %></td>
+          <td>
+            <%= link_to "詳細", maint_path(maint) %>
+            <%= link_to "編集", edit_maint_path(maint) %>
+            <%= link_to "削除", maint_path(maint), method: :delete, data: {confirm: "削除しますか?"}%>
+          </td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
 </div>

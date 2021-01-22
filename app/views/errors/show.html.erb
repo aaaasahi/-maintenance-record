@@ -1,8 +1,10 @@
 <div class="container">
-  <%= @error.game %>
-  <%= @error.problem %>
-  <%= @error.approach %>
-  <%= @error.name %>
-
-  <%= link_to "トップページに戻る", root_path %>
+<h1 class="text-center mb-5">エラー詳細</h1>
+<ul class="list-group">
+  <li class="list-group-item bg-light">機種：<%= @error.game %></li>
+  <li class="list-group-item">エラー内容：<%= @error.problem %></li>
+  <li class="list-group-item bg-light">対処法：<%= @error.approach %></li>
+  <li class="list-group-item">担当者：<%= @error.name %></li>
+</ul>
+  <%= link_to "エラー一覧ページ戻る", root_path %>
 </div>
