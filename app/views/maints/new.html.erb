@@ -1,0 +1,23 @@
+<div class="container">
+  <%= form_with(model: @maint, local: true) do |f| %>
+    <div>
+      <%= f.label :game, '機種名' %>
+    </div>
+    <div>
+      <%= f.text_field :game, class: 'text' %>
+    </div>
+    <div>
+      <%= f.label :content, 'メンテナンス内容' %>
+    </div>
+    <div>
+      <%= f.text_area :content %>
+    </div>
+    <div>
+      <%= f.label :name, '担当者' %>
+    </div>
+    <div>
+      <%= f.text_field :name, class: 'text' %>
+    </div>
+    <%= f.submit '記録する', class: 'btn-primary' %>
+  <% end %>
+</div>
