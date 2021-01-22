@@ -1,0 +1,12 @@
+<div class="container">
+  <% @maints.each do |maint| %>
+    <p>
+      <%= maint.game %>
+      <%= link_to "詳細", maint_path(maint) %>
+      <%= link_to "編集", edit_maint_path(maint) %>
+      <%= link_to "削除", maint_path(maint), method: :delete, data: {confirm: "削除しますか?"}%>
+    </p>
+  <% end %>
+
+    
+</div>
