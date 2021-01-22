@@ -15,8 +15,9 @@ class ErrorsController < ApplicationController
     def create
         @error = Error.new(error_params)
         if @error.save
-            redirect_to root_path
+            redirect_to root_path, notice: "登録完了"
         else
+            flash.now[:error] = "登録失敗"
             render :new
         end
     end
@@ -28,8 +29,9 @@ class ErrorsController < ApplicationController
     def update
         @error = Error.find(params[:id])
         if @error.update(error_params)
-            redirect_to root_path
+            redirect_to root_path, notice: "編集完了"
         else
+            flash.now[:error] = "編集失敗"
             render :edit
         end
     end
@@ -37,7 +39,7 @@ class ErrorsController < ApplicationController
     def destroy
         error = Error.find(params[:id])
         error.destroy!
-        redirect_to root_path
+        redirect_to root_path, notice: "削除しました"
     end
 
     private 
