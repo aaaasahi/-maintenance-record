@@ -2,6 +2,8 @@ class MaintsController < ApplicationController
 
     def index
         @maints = Maint.all
+        @q = Maint.ransack(params[:q])
+        @maints = @q.result(distinct: true)
     end
 
     def show
@@ -10,6 +12,7 @@ class MaintsController < ApplicationController
 
     def new
         @maint = Maint.new
+
     end
 
     def create
