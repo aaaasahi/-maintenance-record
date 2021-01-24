@@ -2,6 +2,8 @@ class ErrorsController < ApplicationController
     
     def index
         @errors = Error.all
+        @q = Error.ransack(params[:q])
+        @errors = @q.result(distinct: true)
     end
 
     def show
