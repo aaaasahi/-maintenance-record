@@ -46,6 +46,6 @@ class ErrorsController < ApplicationController
 
     private 
     def error_params
-        params.require(:error).permit(:game,:problem,:approach,:name,:date)
+        params.require(:error).permit(:game,:problem,:approach,:name)
     end
 end
