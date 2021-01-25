@@ -1,4 +1,5 @@
 class MaintsController < ApplicationController
+    before_action :set_maint, only:[:show, :edit, :update]
 
     def index
         @maints = Maint.all
@@ -7,7 +8,6 @@ class MaintsController < ApplicationController
     end
 
     def show
-        @maint = Maint.find(params[:id])
     end
 
     def new
@@ -26,11 +26,9 @@ class MaintsController < ApplicationController
     end
 
     def edit
-        @maint = Maint.find(params[:id])
     end
 
     def update
-        @maint = Maint.find(params[:id])
         if @maint.update(maint_params)
             redirect_to maints_path, notice: "編集完了"
         else
@@ -50,4 +48,7 @@ class MaintsController < ApplicationController
         params.require(:maint).permit(:game,:content,:name,:date)
     end
     
+    def set_maint
+        @maint = Maint.find(params[:id])
+    end
 end
