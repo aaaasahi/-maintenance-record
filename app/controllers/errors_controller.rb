@@ -1,4 +1,5 @@
 class ErrorsController < ApplicationController
+    before_action :set_error, only:[:show, :edit, :update]
     
     def index
         @errors = Error.all
@@ -7,7 +8,6 @@ class ErrorsController < ApplicationController
     end
 
     def show
-        @error = Error.find(params[:id])
     end
     
     def new
@@ -25,11 +25,9 @@ class ErrorsController < ApplicationController
     end
 
     def edit
-        @error = Error.find(params[:id])
     end
 
     def update
-        @error = Error.find(params[:id])
         if @error.update(error_params)
             redirect_to root_path, notice: "編集完了"
         else
@@ -47,5 +45,9 @@ class ErrorsController < ApplicationController
     private 
     def error_params
         params.require(:error).permit(:game,:problem,:approach,:name)
+    end
+
+    def set_error
+        @error = Error.find(params[:id])
     end
 end
