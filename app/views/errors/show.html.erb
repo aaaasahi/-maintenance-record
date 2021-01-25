@@ -1,11 +1,11 @@
 <div class="container">
-<h1 class="text-center mb-5">エラー詳細</h1>
-<ul class="list-group">
+<h1 class="text-center mb-4">エラー詳細</h1>
+<ul class="list-group mb-3">
   <li class="list-group-item bg-light">機種：<%= @error.game %></li>
   <li class="list-group-item">エラー内容：<%= @error.problem %></li>
   <li class="list-group-item bg-light">対処法：<%= @error.approach %></li>
   <li class="list-group-item">担当者：<%= @error.name %></li>
-  <li class="list-group-item">
+  <li class="list-group-item bg-light">
     日付：<%= @error.display_created_at %>(<%= time_ago_in_words(@error.created_at) %>前)
   </li>
 </ul>
